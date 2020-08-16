@@ -1,4 +1,4 @@
-const order = 6;
+let order = 1;
 let N;
 let total;
 
@@ -10,7 +10,10 @@ function setup() {
   createCanvas(512, 512);
   colorMode(HSB, 360, 255, 255);
   background(0);
+  initialize();
+}
 
+function initialize(){
   N = int(pow(2, order));
   total = N * N;
 
@@ -36,9 +39,10 @@ function draw() {
   }
   //endShape();
 
-  counter += 50;
+  counter += 50*(order/6);
   if (counter >= path.length) {
-    counter = 0;
+    order+=1;
+    initialize();
   }
 
   // strokeWeight(4);
